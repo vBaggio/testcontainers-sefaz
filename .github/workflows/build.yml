@@ -1,0 +1,38 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v5
+      # Unitários, contrato, integração (contra a imagem construída com Jib no próprio build),
+      # ponta a ponta com a Java_NFe e Spring com a versão padrão do catálogo.
+      - run: ./gradlew build
+
+  spring-boot:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        spring-boot: ["3.5.16", "4.1.2"]
+    name: spring-boot ${{ matrix.spring-boot }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v5
+      - run: ./gradlew :testcontainers-sefaz-spring-boot:test -PspringBootVersion=${{ matrix.spring-boot }}

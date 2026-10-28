@@ -1,0 +1,39 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Versão a partir da tag
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_ENV"
+      - name: Build e testes
+        run: ./gradlew build -PreleaseVersion="$VERSION"
+      # Imagem e artefatos andam com a mesma versão (SemVer).
+      - name: Imagem no GHCR (linux/amd64 e linux/arm64)
+        run: >
+          ./gradlew :sefaz-mock-server:jib
+          -PreleaseVersion="$VERSION"
+          -PjibPlatforms=linux/amd64,linux/arm64
+          -Djib.to.auth.username="${{ github.actor }}"
+          -Djib.to.auth.password="${{ secrets.GITHUB_TOKEN }}"
+      - name: Artefatos no Maven Central
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: ./gradlew publishToMavenCentral -PreleaseVersion="$VERSION"
