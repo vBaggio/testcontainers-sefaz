@@ -1,0 +1,8 @@
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+  <SignedInfo>
+    <Reference URI="#NFe">
+      <DigestValue>${digest}</DigestValue>
+    </Reference>
+  </SignedInfo>
+  <SignatureValue>AAAA</SignatureValue>
+</Signature>

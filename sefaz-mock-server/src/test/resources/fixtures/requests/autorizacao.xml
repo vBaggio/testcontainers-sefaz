@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <nfeDadosMsg xmlns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeAutorizacao4">
+      <enviNFe xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+        <idLote>1</idLote>
+        <indSinc>${indSinc}</indSinc>
+        <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+          <infNFe Id="NFe${chave}" versao="4.00">
+            <ide>
+              <cUF>35</cUF>
+              <natOp>VENDA</natOp>
+              <mod>55</mod>
+              <serie>1</serie>
+              <nNF>123</nNF>
+              <tpEmis>1</tpEmis>
+              <tpAmb>2</tpAmb>
+            </ide>
+            <emit>
+              <CNPJ>11222333000181</CNPJ>
+              <xNome>EMPRESA FICTICIA LTDA</xNome>
+            </emit>
+          </infNFe>
+          ${signature}
+        </NFe>
+      </enviNFe>
+    </nfeDadosMsg>
+  </soap12:Body>
+</soap12:Envelope>

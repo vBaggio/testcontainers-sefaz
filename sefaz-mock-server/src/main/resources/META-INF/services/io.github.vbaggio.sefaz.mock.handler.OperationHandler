@@ -1,0 +1,4 @@
+io.github.vbaggio.sefaz.mock.handler.StatusServicoHandler
+io.github.vbaggio.sefaz.mock.handler.AutorizacaoHandler
+io.github.vbaggio.sefaz.mock.handler.RetAutorizacaoHandler
+io.github.vbaggio.sefaz.mock.handler.ConsultaProtocoloHandler

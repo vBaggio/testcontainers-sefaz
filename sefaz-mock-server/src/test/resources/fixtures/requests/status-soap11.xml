@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <nfeCabecMsg xmlns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
+      <cUF>35</cUF>
+      <versaoDados>4.00</versaoDados>
+    </nfeCabecMsg>
+  </soap:Header>
+  <soap:Body>
+    <nfeDadosMsg xmlns="http://www.portalfiscal.inf.br/nfe/wsdl/NFeStatusServico4">
+      <consStatServ xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+        <tpAmb>1</tpAmb>
+        <cUF>35</cUF>
+        <xServ>STATUS</xServ>
+      </consStatServ>
+    </nfeDadosMsg>
+  </soap:Body>
+</soap:Envelope>

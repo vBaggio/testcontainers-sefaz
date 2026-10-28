@@ -1,0 +1,9 @@
+<retEnviNFe xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+    <tpAmb>{{tpAmb}}</tpAmb>
+    <verAplic>{{verAplic}}</verAplic>
+    <cStat>{{cStat}}</cStat>
+    <xMotivo>{{xMotivo}}</xMotivo>
+    <cUF>{{cUF}}</cUF>
+    <dhRecbto>{{dhRecbto}}</dhRecbto>
+    {{{resultado}}}
+</retEnviNFe>

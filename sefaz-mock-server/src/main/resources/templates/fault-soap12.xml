@@ -1,0 +1,8 @@
+<soap:Fault>
+    <soap:Code>
+        <soap:Value>soap:Receiver</soap:Value>
+    </soap:Code>
+    <soap:Reason>
+        <soap:Text xml:lang="pt-BR">{{reason}}</soap:Text>
+    </soap:Reason>
+</soap:Fault>

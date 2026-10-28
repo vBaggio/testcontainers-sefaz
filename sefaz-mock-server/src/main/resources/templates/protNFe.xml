@@ -1,0 +1,12 @@
+<protNFe versao="4.00">
+    <infProt Id="ID{{nProt}}">
+        <tpAmb>{{tpAmb}}</tpAmb>
+        <verAplic>{{verAplic}}</verAplic>
+        <chNFe>{{chNFe}}</chNFe>
+        <dhRecbto>{{dhRecbto}}</dhRecbto>
+        <nProt>{{nProt}}</nProt>
+        <digVal>{{digVal}}</digVal>
+        <cStat>{{cStat}}</cStat>
+        <xMotivo>{{xMotivo}}</xMotivo>
+    </infProt>
+</protNFe>

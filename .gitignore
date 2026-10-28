@@ -1,0 +1,13 @@
+.gradle/
+.kotlin/
+build/
+out/
+*.iml
+.idea/
+.vscode/
+*.class
+*.log
+.DS_Store
+# Certificados e truststores gerados em testes nunca entram no repositório.
+*.pfx
+*.p12

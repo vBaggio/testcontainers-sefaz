@@ -1,0 +1,4 @@
+<soap:Fault>
+    <faultcode>soap:Server</faultcode>
+    <faultstring>{{reason}}</faultstring>
+</soap:Fault>
