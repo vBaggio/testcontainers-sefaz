@@ -14,7 +14,7 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     // Módulos cliente miram Java 17; o servidor sobrescreve para 21.
     options.release.convention(17)
-    options.compilerArgs.addAll(listOf("-parameters", "-Xlint:all,-serial,-processing,-options"))
+    options.compilerArgs.addAll(listOf("-parameters", "-Xlint:all,-serial,-processing,-options,-this-escape"))
 }
 
 tasks.withType<Javadoc>().configureEach {
