@@ -41,8 +41,10 @@ Armadilha: todo método de `Nfe` chama `ConfiguracoesUtil.iniciaConfiguracoes`, 
 ### 3. URL `http://` no arquivo customizado
 
 Aceita. O transporte do Axis2 é escolhido pelo esquema da URL, e o certificado só é registrado como
-protocolo `https`. O exemplo usa a porta 8080 e o TLS sai do caminho; o teste HTTPS fica no módulo
-Testcontainers. Verificado em `examples/java-nfe-example`.
+protocolo `https`. O exemplo usa a porta 8080 na maior parte dos testes, e o TLS sai do caminho. Um
+teste próprio (`statusDoServicoPorHttpsComCacertDoContainer`) usa HTTPS com o cacert do container e
+confirma que a Java_NFe apresenta o certificado A1 como certificado de cliente. Verificado em
+`examples/java-nfe-example`.
 
 ### 4. Dados exigidos do certificado de cliente
 
