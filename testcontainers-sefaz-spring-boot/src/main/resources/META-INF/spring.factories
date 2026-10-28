@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.service.connection.ConnectionDetailsFactory=\
+io.github.vbaggio.sefaz.spring.SefazContainerConnectionDetailsFactory
+
+org.springframework.test.context.ContextCustomizerFactory=\
+io.github.vbaggio.sefaz.spring.SefazPropertyMapping$Factory
+
+org.springframework.test.context.TestExecutionListener=\
+io.github.vbaggio.sefaz.spring.SefazScenarioTestExecutionListener
